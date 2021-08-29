@@ -2,10 +2,8 @@
 
 let firstNumber; 
 let secondNumber;
-
-let operator = document.querySelector("#operator").value;
-
-let results = document.querySelector("#results").value;
+let operator; 
+let results;
 
 window.addEventListener("load", settingUp);
 
@@ -14,7 +12,15 @@ function settingUp(){
 
     document.querySelector("#calculate").addEventListener("click", readFirstNumber);
     document.querySelector("#calculate").addEventListener("click", readSecondNumber);
+
+    document.querySelector("#clear").addEventListener("click", clearListOfResults);
 };
+
+function clearListOfResults(){
+    console.log("clearListOfResults");
+    results = document.querySelector("#results").value = 0;
+
+}
 
 function readFirstNumber(){
     console.log("readFirstNumber");                                                                                                        
@@ -31,6 +37,8 @@ function readSecondNumber(){
 function readOperator(){
     console.log("readOperator");
 
+    operator = document.querySelector("#operator").value;
+
     if (operator === "add"){
         calculateFirstPlusSecond();
     } else if (operator === "sub") {
@@ -46,19 +54,22 @@ function readOperator(){
 function calculateFirstPlusSecond(){
     console.log("calculatePlusFirstSecond");
     document.querySelector("#results").innerHTML = firstNumber + secondNumber;
+
 };
 
 function calculateFirstMinusSecond(){
     console.log("calculateFirstMinusSecond");
+    document.querySelector("#results").innerHTML = firstNumber - secondNumber;
 };
 
 function calculateFirstDevideSecond(){
     console.log("calculateFirstDevideSecond");
+    document.querySelector("#results").innerHTML = firstNumber / secondNumber;
 };
 
 function calculateFirstTimesSecond(){
     console.log("calculateFirstTimesSecond");
-    document.querySelector("#results").innerHTML = firstNumber + secondNumber;
+    document.querySelector("#results").innerHTML = firstNumber * secondNumber;
 };
 
 function checkIfResultShouldBeRounded(){
