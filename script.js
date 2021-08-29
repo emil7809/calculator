@@ -1,5 +1,12 @@
 "use strict";
 
+let firstNumber = document.querySelector("#firstnumber").value;
+let secondNumber = document.querySelector("#secondnumber").value;
+
+let operator = document.querySelector("#operator").value;
+
+let results = document.querySelector("#results").value;
+
 window.addEventListener("load", settingUp);
 
 function settingUp(){
@@ -10,7 +17,8 @@ function settingUp(){
 };
 
 function readFirstNumber(){
-    console.log("readFirstNumber");
+    console.log("readFirstNumber");                                                                                                        
+
 };
 
 function readSecondNumber(){
@@ -19,6 +27,17 @@ function readSecondNumber(){
 
 function readOperator(){
     console.log("readOperator");
+
+    if (operator === "+"){
+        document.querySelector("#calculate").addEventListener("click", calculateFirstPlusSecond);
+    } else if (operator === "-") {
+        document.querySelector("#calculate").addEventListener("click", calculateFirstMinusSecond);
+    } else if (operator === "/") {
+        document.querySelector("#calculate").addEventListener("click", calculateFirstDevideSecond);
+    } else if (operator === "*") {
+        document.querySelector("#calculate").addEventListener("click", calculateFirstTimesSecond);
+    }
+
 };
 
 function calculateFirstPlusSecond(){
