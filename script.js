@@ -4,6 +4,9 @@ window.addEventListener("load", settingUp);
 
 function settingUp(){
     console.log("Setting up");
+
+    document.querySelector("#calculate").addEventListener("click", readFirstNumber);
+    document.querySelector("#calculate").addEventListener("click", readSecondNumber);
 };
 
 function readFirstNumber(){
