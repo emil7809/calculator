@@ -4,6 +4,7 @@ let firstNumber;
 let secondNumber;
 let operator; 
 let results;
+let result;
 
 window.addEventListener("load", settingUp);
 
@@ -12,7 +13,6 @@ function settingUp(){
 
     document.querySelector("#calculate").addEventListener("click", readNumber);
     document.querySelector("#calculate").addEventListener("click", readNumber);
-
     document.querySelector("#clear").addEventListener("click", clearListOfResults);
 };
 
@@ -48,16 +48,19 @@ function readOperator(){
 };
 
 function showResults() {
+    //I DONT UNDERSTAND THIS AND NEED HELP
     document.querySelector("#firstnumber").value = results;
     let li = document.createElement("li");
     const resultNode = document.createTextNode(results.toString());
     li.appendChild(resultNode);
     document.querySelector("#results").appendChild(li);
     document.querySelector("#results").scrollTo(0, 10000000);
+     //I DONT UNDERSTAND THIS AND NEED HELP
+
 }
 
 function checkIfResultShouldBeRounded(){
-    console.log("checkIfResultShouldBeRounded");
+   
 };
 
 function readNumberOfDecimals(){
