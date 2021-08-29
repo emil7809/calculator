@@ -10,26 +10,20 @@ window.addEventListener("load", settingUp);
 function settingUp(){
     console.log("Setting up");
 
-    document.querySelector("#calculate").addEventListener("click", readFirstNumber);
-    document.querySelector("#calculate").addEventListener("click", readSecondNumber);
+    document.querySelector("#calculate").addEventListener("click", readNumber);
+    document.querySelector("#calculate").addEventListener("click", readNumber);
 
     document.querySelector("#clear").addEventListener("click", clearListOfResults);
 };
 
 function clearListOfResults(){
     console.log("clearListOfResults");
-    results = document.querySelector("#results").value = 0;
-
+    document.querySelector("#results").innerHTML = "0";
 }
 
-function readFirstNumber(){
+function readNumber(){
     console.log("readFirstNumber");                                                                                                        
     firstNumber = Number(document.querySelector("#firstnumber").value);
-    readOperator()
-};
-
-function readSecondNumber(){
-    console.log("readSecondNumber");
     secondNumber = Number(document.querySelector("#secondnumber").value);
     readOperator()
 };
@@ -40,37 +34,27 @@ function readOperator(){
     operator = document.querySelector("#operator").value;
 
     if (operator === "add"){
-        calculateFirstPlusSecond();
+        results = Number(firstNumber + secondNumber);
     } else if (operator === "sub") {
-        calculateFirstMinusSecond();
+        results = Number(firstNumber - secondNumber);
     } else if (operator === "div") {
-        calculateFirstDevideSecond();
+        results = Number(firstNumber / secondNumber);
     } else if (operator === "mul") {
-        calculateFirstTimesSecond();
+        results = Number(firstNumber * secondNumber);
     }
 
-};
-
-function calculateFirstPlusSecond(){
-    console.log("calculatePlusFirstSecond");
-    document.querySelector("#results").firstElementChild.innerHTML = firstNumber + secondNumber;
+    showResults();
 
 };
 
-function calculateFirstMinusSecond(){
-    console.log("calculateFirstMinusSecond");
-    document.querySelector("#results").firstElementChild.innerHTML = firstNumber - secondNumber;
-};
-
-function calculateFirstDevideSecond(){
-    console.log("calculateFirstDevideSecond");
-    document.querySelector("#results").firstElementChild.innerHTML = firstNumber / secondNumber;
-};
-
-function calculateFirstTimesSecond(){
-    console.log("calculateFirstTimesSecond");
-    document.querySelector("#results").firstElementChild.innerHTML = firstNumber * secondNumber;
-};
+function showResults() {
+    document.querySelector("#firstnumber").value = results;
+    let li = document.createElement("li");
+    const resultNode = document.createTextNode(results.toString());
+    li.appendChild(resultNode);
+    document.querySelector("#results").appendChild(li);
+    document.querySelector("#results").scrollTo(0, 10000000);
+}
 
 function checkIfResultShouldBeRounded(){
     console.log("checkIfResultShouldBeRounded");
@@ -95,3 +79,4 @@ function appendResultToEndOfList(){
 function ScrollListToTheBottom(){
     console.log("ScrollListToTheBottom");
 };
+
